@@ -13,8 +13,9 @@
     grid-gap: 30px;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     max-width: 1450px;
-    padding: 0 12px;
+    padding: 18px 12px;
     margin: 100px auto;
+    background-color: aliceblue;
 }
 
 .user {
