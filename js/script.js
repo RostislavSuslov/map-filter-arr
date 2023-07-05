@@ -299,8 +299,7 @@ window.addEventListener('load', function () {
                 let val = event.target.value
                 state.gender = val     
                 
-                const filteredForGender = genderFilter() 
-              
+                const filteredForGender = mainFilter()
                 renderPerson(filteredForGender)
            })
         })
@@ -309,10 +308,11 @@ window.addEventListener('load', function () {
 
     function getAgeVal() {
         ageRange.addEventListener('click', (event)=> {
+            
             let val = event.target.value
             state.age = val
 
-            const filteredForAge = ageFilter()
+            const filteredForAge = mainFilter()
             renderPerson(filteredForAge)
         })
     }
@@ -320,14 +320,59 @@ window.addEventListener('load', function () {
 
 
 
-    function ageFilter(){
-        return  peopleArr.filter(item => item.age <= state.age)
+    // function ageFilter(){
+    //     return  peopleArr.filter(item => item.age <= state.age)
+    // }
+
+
+    // function genderFilter(){
+    //     return (state.gender === 'all' ? peopleArr : 
+    //     peopleArr.filter(item => item.gender === state.gender))
+    // }
+
+
+
+
+
+
+
+
+    function mainFilter() {
+        const filtered =  peopleArr.filter(item => {
+            const setAge = item.age <= state.age;
+            const setGender = state.gender === 'all' ? peopleArr : item.gender === state.gender 
+
+            return setGender && setAge;
+        })
+       
+       return filtered;
+         
     }
 
 
-    function genderFilter(){
-        return (state.gender === 'all' ? peopleArr : 
-        peopleArr.filter(item => item.gender === state.gender))
-    }
 
+
+
+    // function filterData() {
+    //     return peopleArr.filter(item => {
+    //         if (state.gender !== 'all' && item.gender !== state.gender) {
+    //             return false;
+    //         }
+    //         if (state.age < item.age) {
+    //             return false;
+    //         }
+    //         return true;
+    //     });
+    // }
+    
+ 
+
+    // function filterPeople() {
+    //     const filtered = peopleArr.filter(person => {
+    //       const isGenderMatch = state.gender === 'all' || person.gender === state.gender;
+    //       const isAgeMatch = person.age <= state.age;
+    //       return isGenderMatch && isAgeMatch;
+    //     });
+    //     return filtered;
+    //   }
 })
