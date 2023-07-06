@@ -3,13 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#4285f4" />
     <title>map(), filter()</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
      <main>
         <div class="sort-container">
-           
+            <div class="column">
+                <label for="nameFilter">name:</label>
+                <input type="text" id="nameFilter" name="nameFilter">
+            </div>
             <div class="column">
                 <label for="ageFilter">age  (between 16 and 74):</label>
                 <input type="range" id="ageFilter" name="ageFilter" min="16" max="74">
